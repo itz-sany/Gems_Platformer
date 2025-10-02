@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crystal Quest: The Lost Kingdom</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="ui-overlay">
+            <div class="health-bar">
+                <div class="health-fill" id="healthFill"></div>
+                <span class="health-text">Health</span>
+            </div>
+            <div class="mana-bar">
+                <div class="mana-fill" id="manaFill"></div>
+                <span class="mana-text">Mana</span>
+            </div>
+            <div class="coins">Crystals: <span id="crystals">0</span></div>
+            <div class="level-info">Level: <span id="currentLevel">1</span> - <span id="levelName">The Forgotten Gardens</span></div>
+            <div class="abilities-info">
+                <div class="ability" id="doubleJumpAbility">Double Jump: <span id="doubleJumpStatus">Locked</span></div>
+                <div class="ability" id="wallJumpAbility">Wall Jump: <span id="wallJumpStatus">Locked</span></div>
+                <div class="ability" id="dashAbility">Dash: <span id="dashStatus">Locked</span></div>
+            </div>
+        </div>
+        <canvas id="gameCanvas" width="1000" height="600"></canvas>
+        
+        <!-- Dialogue System -->
+        <div id="dialogueBox" class="dialogue-box hidden">
+            <div class="dialogue-character" id="dialogueCharacter"></div>
+            <div class="dialogue-text" id="dialogueText"></div>
+            <button class="dialogue-continue" id="dialogueContinue">Continue</button>
+        </div>
+        
+        <!-- Game Over Screen -->
+        <div id="gameOver" class="game-over hidden">
+            <h2>Game Over</h2>
+            <p>The kingdom remains lost...</p>
+            <p>Crystals Collected: <span id="finalCrystals">0</span></p>
+            <button id="restartBtn">Try Again</button>
+        </div>
+        
+        <!-- Victory Screen -->
+        <div id="victoryScreen" class="victory-screen hidden">
+            <h2>Victory!</h2>
+            <p>You have restored the Crystal Kingdom!</p>
+            <p>Total Crystals: <span id="totalCrystals">0</span></p>
+            <button id="playAgainBtn">Play Again</button>
+        </div>
+        
+        <!-- Start Screen -->
+        <div id="startScreen" class="start-screen">
+            <h1>Crystal Quest</h1>
+            <h2>The Lost Kingdom</h2>
+            <div class="story-intro">
+                <p>Long ago, the Crystal Kingdom flourished with magical energy from six sacred realms...</p>
+                <p>But the Shadow Lord Malachar consumed the land, scattering the crystals and corrupting the realms.</p>
+                <p>You are Aria, the last Crystal Guardian. Journey through six mystical realms, master ancient abilities, and face the Shadow Lord to restore the kingdom's light!</p>
+            </div>
+            <div class="controls-info">
+                <p><strong>Controls:</strong></p>
+                <p>A/D or ← → : Move</p>
+                <p>W or ↑ or SPACE : Jump (Double Jump when unlocked)</p>
+                <p>SHIFT : Dash (when unlocked)</p>
+                <p>E : Interact / Use Items</p>
+                <p>Q : Cast Magic (when mana available)</p>
+            </div>
+            <button id="startBtn">Begin Quest</button>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>
